@@ -1,3 +1,6 @@
+// menus
+const menus = require( "./menus" );
+
 //basic stuff
 const electron = require( "electron" );
 
@@ -26,12 +29,16 @@ app.on( "window-all-closed", () => {
 
 app.on( "ready", () => {
     mainWindow = new BrowserWindow( { width: 800, height:600, show: false } );
-    mainWindow.loadURL( `file://${ __dirname }/index.html` );
-    
+    // mainWindow.loadURL( `file://${ __dirname }/index.html` );
+    mainWindow.loadURL( `file://${ __dirname }/dadjokes.html` );
+
     // dev tools
     // if ( isDev ) {
     //     mainWindow.webContents.openDevTools();
     // }
+
+    // menus
+    menus.buildMenu();
 
     // ready to show is like dom ready 
     mainWindow.once( "ready-to-show", () => {
